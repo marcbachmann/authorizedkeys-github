@@ -1,0 +1,18 @@
+{
+  "name": "authorizedkeys-github",
+  "version": "1.0.0",
+  "description": "A server that fetches public keys of all members of a github project and writes them into an `.ssh/authorized_keys` file.",
+  "engines": {"node": "8"},
+  "keywords": ["authorized_keys", "ssh", "public key", "public keys", "authorized keys"],
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Marc Bachmann <marc.brookman@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^0.25.1",
+    "fastify-cli": "^0.6.1",
+    "github": "^9.2.0"
+  }
+}
