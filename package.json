@@ -1,9 +1,17 @@
 {
   "name": "authorizedkeys-github",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A server that fetches public keys of all members of a github project and writes them into an `.ssh/authorized_keys` file.",
-  "engines": {"node": "8"},
-  "keywords": ["authorized_keys", "ssh", "public key", "public keys", "authorized keys"],
+  "engines": {
+    "node": "8"
+  },
+  "keywords": [
+    "authorized_keys",
+    "ssh",
+    "public key",
+    "public keys",
+    "authorized keys"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
