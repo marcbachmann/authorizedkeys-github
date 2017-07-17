@@ -32,6 +32,7 @@ module.exports = function (fastify, opts, cb) {
   }
 
   fastify.get('/', (req, rep) => keys.get(getParams))
+  fastify.get('/status', (req, rep) => rep.code(204).send())
 
   cb()
 }
