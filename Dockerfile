@@ -6,4 +6,4 @@ RUN npm install
 ADD . /app
 
 EXPOSE 3000
-CMD /app/node_modules/.bin/fastify index.js
+CMD /app/node_modules/.bin/fastify start index.js
