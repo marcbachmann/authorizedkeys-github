@@ -18,9 +18,9 @@ function read (path, users, cb) {
     if (err && err.code !== 'ENOENT') return cb(err)
 
     if (/authorizedkeys-github/.test(str)) str = str.replace(templateRegExp, template)
-    else str = str ? str + '\n' + template : template
+    else str = str ? `${str}\n${template}` : template
 
-    const keys = users.reduce((a, u) => a.concat(`# github user: ${u.login}`, u.keys, ''), []).join('\n')
+    const keys = users.reduce((a, u) => a.concat(`# github user: ${u.login}`, u.keys, ''), []).join('\n') // eslint-disable-line max-len
     str = str.replace(templateRegExp, template.replace('((.|[\r\n])*)', keys)).replace(/\n?$/, '\n')
     cb(null, str)
   })
