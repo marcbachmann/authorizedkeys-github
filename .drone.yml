@@ -1,0 +1,35 @@
+---
+kind: pipeline
+name: test
+
+steps:
+- name: eslint
+  image: marcbachmann/eslint:5.10.1
+  environment:
+    GH_TOKEN:
+      from_secret: GH_TOKEN
+
+- name: install
+  image: node:8-alpine
+  commands: ["npm install"]
+
+- name: test
+  image: node:8-alpine
+  commands: ["npm test"]
+
+- name: publish
+  image: livingdocs/semantic-release:v1.0.0
+  environment:
+    GH_TOKEN:
+      from_secret: GH_TOKEN
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
+
+trigger:
+  event: [push]
+
+---
+kind: signature
+hmac: 62744d6bcfa7a74b722d2465f16639f62dbeb018a067aa709a677cdd0c6a616b
+
+...

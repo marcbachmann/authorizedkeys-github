@@ -18,7 +18,6 @@ module.exports = function (opts) {
 }
 
 function getMembers (client, {teamId, org, teamName}) {
-  let q
   if (teamId) return getTeamMembers(client, teamId)
 
   if (!org) throw new Error('The option `org` is required.')
@@ -53,5 +52,7 @@ function getKeysOfUsers (client, users) {
 }
 
 function getKeyOfUser (client, user) {
-  return client.users.getKeysForUser({username: user.login}).then((res) => res.data.map((k) => k.key))
+  return client.users
+    .getKeysForUser({username: user.login})
+    .then((res) => res.data.map((k) => k.key))
 }
